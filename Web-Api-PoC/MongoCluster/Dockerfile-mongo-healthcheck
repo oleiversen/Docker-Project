@@ -1,0 +1,5 @@
+FROM mongo:3.4.14-jessie
+
+COPY docker-healthcheck /usr/local/bin/
+
+HEALTHCHECK CMD ["docker-healthcheck"]

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4DBE6F1B-06AA-4D79-8204-07F81B5CBAE9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web-Api", "Web-Api\Web-Api.csproj", "{8BB3342C-E949-48E3-8F64-18D46E2892DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrafficGenerator", "TrafficGenerator\TrafficGenerator.csproj", "{46195835-5A26-43C9-853A-0591F2B235D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DBE6F1B-06AA-4D79-8204-07F81B5CBAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBE6F1B-06AA-4D79-8204-07F81B5CBAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBE6F1B-06AA-4D79-8204-07F81B5CBAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBE6F1B-06AA-4D79-8204-07F81B5CBAE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB3342C-E949-48E3-8F64-18D46E2892DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB3342C-E949-48E3-8F64-18D46E2892DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB3342C-E949-48E3-8F64-18D46E2892DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB3342C-E949-48E3-8F64-18D46E2892DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46195835-5A26-43C9-853A-0591F2B235D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46195835-5A26-43C9-853A-0591F2B235D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46195835-5A26-43C9-853A-0591F2B235D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46195835-5A26-43C9-853A-0591F2B235D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E3541A0-98E8-440A-BD62-26FED18233AF}
+	EndGlobalSection
+EndGlobal

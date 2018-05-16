@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  web-api:
+    image: oleiversen/web-api:1.0-jessie
+    ports:
+      - "8080:80"
+    restart: always
+      
+    networks:
+      - backend
+    deploy:
+      mode: replicated
+      replicas: 2      
+    environment:
+      - MongoConnection:ConnectionString=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs
+      - MongoConnection:Database=KeyValue
+     
+  mongo3:
+    image: mongo:3.4.14-jessie
+    restart: always
+    networks:
+      - backend
+    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs", "--rest", "--httpinterface", "--smallfiles" ]
+
+
+  mongo2:
+    image: mongo:3.4.14-jessie
+    restart: always
+    networks:
+      - backend
+    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs", "--rest", "--httpinterface", "--smallfiles" ]
+
+
+  mongo1:
+    image: mongo:3.4.14-jessie
+    restart: always
+    networks:
+      - backend
+    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs", "--rest", "--httpinterface", "--smallfiles" ]
+
+
+  mongosetup:
+    image: oleiversen/mongo-setup:1.0-jessie  
+    restart: always
+    networks:
+    - backend
+      
+networks:
+  backend:
+    driver: overlay    

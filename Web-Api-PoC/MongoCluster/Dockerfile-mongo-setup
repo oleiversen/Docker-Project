@@ -1,0 +1,6 @@
+﻿FROM mongo:3.4.14-jessie
+RUN apt-get update
+RUN apt-get install -y curl
+RUN mkdir -p scripts
+COPY mongosetup.sh scripts/
+ENTRYPOINT [ "bash", "/scripts/mongosetup.sh"]

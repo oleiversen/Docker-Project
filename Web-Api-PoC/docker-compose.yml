@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  web-api:
+    image: oleiversen/web-api:1.0-jessie
+    build:
+      context: .
+      dockerfile: Web-Api/Dockerfile
+    ports:
+      - "8080:80"
+    restart: always
+      
+    networks:
+      - backend
+    deploy:
+      mode: replicated
+      replicas: 2      
+    environment:
+      - MongoConnection:ConnectionString=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs
+      - MongoConnection:Database=KeyValue
+      - Logging:LogLevel=Debug #Trace,Debug,Information,Warning,Error,Critical,None
+  mongo3:
+    image: mongo:3.4.14-jessie
+    ports:
+      - "27003:27017"    
+    restart: always
+    networks:
+      - backend
+    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs", "--rest", "--httpinterface", "--smallfiles" ]
+
+
+  mongo2:
+    image: mongo:3.4.14-jessie
+    ports:
+      - "27002:27017"    
+    restart: always
+    networks:
+      - backend
+    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs", "--rest", "--httpinterface", "--smallfiles" ]
+
+
+  mongo1:
+    image: mongo:3.4.14-jessie
+    ports:
+      - "27001:27017"
+    restart: always
+    networks:
+      - backend
+    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs", "--rest", "--httpinterface", "--smallfiles" ]
+
+
+  mongosetup:
+    image: oleiversen/mongo-setup:1.0-jessie  
+    build:
+      context: ./MongoCluster
+      dockerfile: Dockerfile-mongo-setup
+    restart: always
+    networks:
+    - backend
+      
+networks:
+  backend:
+#    driver: overlay    

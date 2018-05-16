@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TrafficGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": " http://localhost:8080/api/values 1000 \"Hallo world\""
+    }
+  }
+}

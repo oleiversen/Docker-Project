@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  trafficgenerator:
+    image: oleiversen/trafficgenerator:1.0-jessie
+    build:
+      context: .
+      dockerfile: TrafficGenerator/Dockerfile
